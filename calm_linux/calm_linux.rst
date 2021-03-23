@@ -150,22 +150,23 @@ Creating the Database Service
    .. note::
       This defines the name of the substrate within Calm. Names can only contain alphanumeric characters, spaces, and underscores.
 
-   - **Cloud** - Nutanix
+   - **Account** - vmware
    - **OS** - Linux
-   - **VM Name** - @@{User_initials}@@-MYSQL-@@{calm_array_index}@@-@@{calm_time}@@
+   - **Compute DRS Mode** - checked
+   - **Cluster** - nu-cl
+   - **Template** Centos7
+   - **Storage DRS Mode** - checked
+   - **Datastore Cluster** - DatastoreCluster
+   - **Instance Name** - @@{User_initials}@@-MYSQL-@@{calm_array_index}@@-@@{calm_time}@@
 
    .. note::
 
      This will use the Runtime **User_initials** variable you previously provided to prepend the VM name with your initials. It will also use built-in macros to provide the array index (for scale out services) and a time stamp.
 
-   - **Image** - CentOS_7_Cloud
-   - **Device Type** - Disk
-   - **Device Bus** - SCSI
-   - Select **Bootable**
    - **vCPUs** - 2
    - **Cores per vCPU** - 1
    - **Memory (GiB)** - 4
-   - Select **Guest Customization**
+   - Enable **VM Guest Customization**
 
      - **Type** - Cloud-init
      - **Script** -
@@ -183,8 +184,6 @@ Creating the Database Service
 
          When using an SSH Private Key Credential, Calm is able to decode that private key into the matching public key, and makes the decoded value accessable via the @@{Credential_Name.public_key}@@ macro. Cloud-Init is then leveraged to populate the SSH public key value as an authorized key, allowing for the corresponding private key to be used to authenticate to the host.
 
-   - Select :fa:`plus-circle` under **Network Adapters (NICs)**
-   - **NIC 1** - Primary
    - **Credential** - CENTOS
 
 #. Click **Save**.
@@ -293,17 +292,22 @@ You will now follow similar steps to define a web server service.
 
    - **Service Name** - WebServer
    - **Name** - WebServerAHV
-   - **Cloud** - Nutanix
+
+
+
+
+   - **Account** - vmware
    - **OS** - Linux
-   - **VM Name** - @@{User_initials}@@-WebServer-@@{calm_array_index}@@
-   - **Image** - CentOS_7_Cloud
-   - **Device Type** - Disk
-   - **Device Bus** - SCSI
-   - Select **Bootable**
+   - **Compute DRS Mode** - checked
+   - **Cluster** - nu-cl
+   - **Template** Centos7
+   - **Storage DRS Mode** - checked
+   - **Datastore Cluster** - DatastoreCluster
+   - **Instance Name** - @@{User_initials}@@-WebServer-@@{calm_array_index}@@
    - **vCPUs** - 2
    - **Cores per vCPU** - 1
    - **Memory (GiB)** - 4
-   - Select **Guest Customization**
+   - Enable **VM Guest Customization**
 
      - **Type** - Cloud-init
      - **Script** -
@@ -450,17 +454,19 @@ To take advantage of a scale out web tier, your application needs to be able to 
 
    - **Service Name** - HAProxy
    - **Name** - HAProxyAHV
-   - **Cloud** - Nutanix
+
+   - **Account** - vmware
    - **OS** - Linux
-   - **VM Name** - @@{User_initials}@@-HAProxy-@@{calm_array_index}@@
-   - **Image** - CentOS\_7\_Cloud
-   - **Device Type** - Disk
-   - **Device Bus** - SCSI
-   - Select **Bootable**
+   - **Compute DRS Mode** - checked
+   - **Cluster** - nu-cl
+   - **Template** Centos7
+   - **Storage DRS Mode** - checked
+   - **Datastore Cluster** - DatastoreCluster
+   - **Instance Name** - @@{User_initials}@@-HAProxy-@@{calm_array_index}@@
    - **vCPUs** - 2
    - **Cores per vCPU** - 1
    - **Memory (GiB)** - 4
-   - Select **Guest Customization**
+   - Enable **VM Guest Customization**
 
      - **Type** - Cloud-init
      - **Script** -
@@ -474,8 +480,6 @@ To take advantage of a scale out web tier, your application needs to be able to 
                - @@{CENTOS.public_key}@@
              sudo: ['ALL=(ALL) NOPASSWD:ALL']
 
-   - Select :fa:`plus-circle` under **Network Adapters (NICs)**
-   - **NIC 1** - Primary
    - **Credential** - CENTOS
 
 #. Select the **Package** tab.
