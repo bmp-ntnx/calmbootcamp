@@ -13,13 +13,7 @@
   calm_win/calm_win
   calm_day2/calm_day2
 
-.. toctree::
-  :maxdepth: 2
-  :caption: Optional Labs
-  :name: _optional_labs
-  :hidden:
 
-  flow_assign_categories_in_calm/flow_assign_categories_in_calm
 
 .. toctree::
   :maxdepth: 2
@@ -47,7 +41,7 @@ What's New
 ++++++++++
 
 - Workshop updated for the following software versions:
-    - AOS & PC 5.10.x
+    - VMWare ESXi & Calm 3.2.0
 
 - Optional Lab Updates:
 
