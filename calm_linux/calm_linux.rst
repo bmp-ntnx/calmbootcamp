@@ -322,7 +322,6 @@ You will now follow similar steps to define a web server service.
              sudo: ['ALL=(ALL) NOPASSWD:ALL']
 
    - Select :fa:`plus-circle` under **Network Adapters (NICs)**
-   - **NIC 1** - Primary
    - **Credential** - CENTOS
 
 #. Select the **Package** tab.
