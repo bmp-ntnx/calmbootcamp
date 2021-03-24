@@ -55,15 +55,14 @@ Projects are the logical construct that integrate Calm with Nutanix's native Sel
 
    .. figure:: images/projects_name_users.png
 
-#. Under **Infrastructure**, click the blue **Select Provider** button, and then **Nutanix**.
+#. Under **Accounts**, click the blue **Add Accounts** button. 
 
-#. In the box that appears, click the white **Select Clusters & Subnets** button, and in the pop-up, select your AHV cluster.  Once your cluster is selected, choose the **Primary** network, and if available, the **Secondary** network, and click **Confirm**.
+   .. figure:: images/AddAccounts.png
 
-   .. figure:: images/projects_cluster_subnet_selection.png
+#. Then press **Select Account** and choose **vmware** from the drop down list.
 
-#. Within the **Selected Subnets** table, select :fa:`star` for the **Primary** network to make it the default virtual network for VMs in the **Calm** project.
+   .. figure:: images/AddVMware.png
 
-   .. figure:: images/projects_infrastructure.png
 
 #. Click **Save**.
 
