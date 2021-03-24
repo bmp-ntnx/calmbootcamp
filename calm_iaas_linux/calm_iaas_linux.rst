@@ -65,17 +65,17 @@ In this lab, you will be creating a **CentOS 7** Linux server.
 #. On this page, we'll be specifying a variety of settings for our infrastructure.
 
    - **General Configuration**
-     - **Compute DRS Mode** - checked
-     - **Cluster** - nu-cl
-     - **Template** Centos7
-     - **Storage DRS Mode** - checked
-     - **Datastore Cluster** - DatastoreCluster
-     - **Instance Name** - this is the name of the virtual machine according to the hypervisor/cloud.  It can be left as default.
-     - **CPU Hot Add** - checked
-     - **vCPUs** - 2 (Mark the field as **runtime** by clicking the running man icon so it turns blue.  This allows the end user to modify this field at launch.)
-     - **Cores per vCPU** - 1
-     - **Memory Hot Plug** - checked
-     - **Memory (GiB)** - 4 (Mark this field as **runtime**.)
+   - **Compute DRS Mode** - checked
+   - **Cluster** - nu-cl
+   - **Template** Centos7
+   - **Storage DRS Mode** - checked
+   - **Datastore Cluster** - DatastoreCluster
+   - **Instance Name** - this is the name of the virtual machine according to the hypervisor/cloud.  It can be left as default.
+   - **CPU Hot Add** - checked
+   - **vCPUs** - 2 (Mark the field as **runtime** by clicking the running man icon so it turns blue.  This allows the end user to modify this field at launch.)
+   - **Cores per vCPU** - 1
+   - **Memory Hot Plug** - checked
+   - **Memory (GiB)** - 4 (Mark this field as **runtime**.)
 
      .. figure:: images/6_centos_3.png
          :align: center
