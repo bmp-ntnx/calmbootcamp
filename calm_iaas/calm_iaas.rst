@@ -78,10 +78,10 @@ In this lab, you have the option of either creating a **CentOS 7** Linux server,
 
    - **General Configuration**
 
-    - **VM Name** - this is the name of the virtual machine according to the hypervisor/cloud.  It can be left as default.
-    - **vCPUs** - the number of vCPUs to assign to the VM.  For **CentOS**, enter **2**.  For **Windows**, enter **4**.  For both, mark the field as **runtime** by clicking the running man icon so it turns blue.  This allows the end user to modify this field at launch.
-    - **Cores per vCPU** - the number of cores per vCPU to assign to the VM.  For both OSes, enter **1**.
-    - **Memory (GiB)** - the amount of RAM to assign to the VM.  For **CentOS**, enter **4**.  For **Windows**, enter **6**.  Mark this field as **runtime**.
+   - **VM Name** - this is the name of the virtual machine according to the hypervisor/cloud.  It can be left as default.
+   - **vCPUs** - the number of vCPUs to assign to the VM.  For **CentOS**, enter **2**.  For **Windows**, enter **4**.  For both, mark the field as **runtime** by clicking the running man icon so it turns blue.  This allows the end user to modify this field at launch.
+   - **Cores per vCPU** - the number of cores per vCPU to assign to the VM.  For both OSes, enter **1**.
+   - **Memory (GiB)** - the amount of RAM to assign to the VM.  For **CentOS**, enter **4**.  For **Windows**, enter **6**.  Mark this field as **runtime**.
 
      .. figure:: images/6_centos_3.png
          :align: center
