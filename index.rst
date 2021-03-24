@@ -22,8 +22,6 @@
   :hidden:
 
   appendix/glossary
-  tools_vms/windows_tools_vm
-  tools_vms/linux_tools_vm
 
 .. _getting_started:
 
@@ -35,7 +33,7 @@ Welcome to the Nutanix Calm Bootcamp!
 
 
 
-This workbook accompanies an instructor-led session that introduces Nutanix Era and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
 What's New
 ++++++++++
