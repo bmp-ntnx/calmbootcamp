@@ -11,8 +11,11 @@
   calm_projects/calm_projects
   calm_iaas_linux/calm_iaas_linux
   calm_linux/calm_linux
-  .. calm_win/calm_win
   calm_day2/calm_day2
+
+  .. calm_iaas/calm_iaas
+  .. calm_win/calm_win
+  calm_dsl/calm_dsl
 
 
 
