@@ -31,30 +31,6 @@ Projects are the logical construct that integrate Calm with Nutanix's native Sel
    - **Project Name** - *initials*-Calm
    - **Description** - *initials*-Calm
 
-#. Under **Users, Groups, and Roles**, click **+ User**.
-
-#. Fill out the following fields and click **Save**:
-
-   - **Name** - SSP Admins
-   - **Role** - Project Admin
-
-#. Click **+ User**, fill out the following fields and click **Save**:
-
-   - **Name** - SSP Developers
-   - **Role** - Developer
-
-#. Click **+ User**, fill out the following fields and click **Save**:
-
-   - **Name** - SSP Power Users
-   - **Role** - Consumer
-
-#. Click **+ User**, fill out the following fields and click **Save**:
-
-   - **Name** - SSP Basic Users
-   - **Role** - Operator
-
-   .. figure:: images/projects_name_users.png
-
 #. Under **Accounts**, click the blue **Add Accounts** button. 
 
    .. figure:: images/AddAccounts.png
@@ -62,7 +38,6 @@ Projects are the logical construct that integrate Calm with Nutanix's native Sel
 #. Then press **Select Account** and choose **vmware** from the drop down list.
 
    .. figure:: images/AddVMware.png
-
 
 #. Click **Save**.
 
