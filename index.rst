@@ -7,7 +7,7 @@
   :hidden:
 
   what_is_calm/what_is_calm
-  calm_enable/calm_enable
+  .. calm_enable/calm_enable
   calm_projects/calm_projects
   calm_iaas_linux/calm_iaas_linux
   calm_linux/calm_linux
@@ -32,7 +32,7 @@
 .. _getting_started:
 
 ---------------
-Getting Started
+Getting Started (VMware Draft)
 ---------------
 
 Welcome to the Nutanix Calm Bootcamp!
@@ -52,10 +52,9 @@ Agenda
 ++++++
 
 - Nutanix Calm Labs
-    - Calm: Enable
     - Calm: Projects
-    - Calm: Linux 3-Tier Application
-    - Calm: Windows 2-Tier Application
+    - Calm: Linux Single VM IaaS
+    - Calm: Linux MultiVM App
     - Calm: Day 2 Actions - Scaling Out/In
 
 
