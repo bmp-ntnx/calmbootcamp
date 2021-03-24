@@ -7,7 +7,7 @@ Calm: Day 2 Operations
 Overview
 ++++++++
 
-In the :ref:`calm_linux` and :ref:`calm_win` labs you explored how Calm can be used to model and deploy complex applications using a blueprint. Calm, however, it capable of managing applications throughout their **entire** lifecycle.
+In the :ref:`calm_linux` lab you explored how Calm can be used to model and deploy complex applications using a blueprint. Calm, however, it capable of managing applications throughout their **entire** lifecycle.
 
 **In this lab you will implement custom actions within Calm to address "Day 2" operations, including scaling out, scaling in, and upgrading your application.**
 

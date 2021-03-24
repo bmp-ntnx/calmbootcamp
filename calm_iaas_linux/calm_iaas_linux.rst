@@ -1,7 +1,7 @@
 .. _calm_iaas_linux:
 
 ---------------------------------
-Calm: Linux Single VM
+Calm: Linux Single VM IaaS
 ---------------------------------
 
 *The estimated time to complete this lab is 20 minutes.*
