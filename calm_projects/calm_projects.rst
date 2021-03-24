@@ -11,7 +11,7 @@ Overview
 
   Review :ref:`what_is_calm` before proceeding with the lab to familiarize yourself with the UI and common terminology used in Nutanix Calm.
 
-  Estimated time to complete: **5 MINUTES**
+  Estimated time to complete: **15 MINUTES**
 
 In this exercise you will configure a Project to contain your Blueprints and Applications created throughout the Bootcamp.
 
@@ -30,6 +30,30 @@ Projects are the logical construct that integrate Calm with Nutanix's native Sel
 
    - **Project Name** - *initials*-Calm
    - **Description** - *initials*-Calm
+
+#. Under **Users, Groups, and Roles**, click **+ Add Users**.
+
+#. Fill out the following fields and click **Save**:
+
+   - **Name** - SSP Admins
+   - **Role** - Project Admin
+
+#. Click **+ User**, fill out the following fields and click **Save**:
+
+   - **Name** - SSP Developers
+   - **Role** - Developer
+
+#. Click **+ User**, fill out the following fields and click **Save**:
+
+   - **Name** - SSP Power Users
+   - **Role** - Consumer
+
+#. Click **+ User**, fill out the following fields and click **Save**:
+
+   - **Name** - SSP Basic Users
+   - **Role** - Operator
+
+   .. figure:: images/projects_name_users.png
 
 #. Under **Accounts**, click the blue **Add Accounts** button. 
 
