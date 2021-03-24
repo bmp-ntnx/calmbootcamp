@@ -216,20 +216,7 @@ Now that we're familiar with the application page layout, let's modify our appli
 
 #. Click **Save**.
 
-#. Take note you're re-directed to the **Audit** tab.  Expand the **Snapshot Create** action to view the tasks of the snapshot.  Once complete, navigate to the **Recovery Points** tab, and validate that our new snapshot is listed.
-
-#. Next, click the **Launch Console** button in the upper right, and log in to your VM.
-
-   - **Username** - centos
-   - **Password** - Nutanix/4u
-
-#. To view the current memory on CentOS, run the command **free -h**.   Take note of the current memory allocated to your VM.
-
-   .. figure:: images/22_centos_memory_before.png
-       :align: center
-       :alt: CentOS Memory - Before Update
-
-       CentOS Memory - Before Update
+#. Take note you're re-directed to the **Audit** tab.  Expand the **Snapshot Create** action to view the tasks of the snapshot.  Once complete, navigate to the **Snapshots** tab, and validate that our new snapshot is listed.
 
 #. Navigate back to the application page of Calm, and click the **Update** button in the upper right and then select the **Update VM Configuration** button.  On the page that appears, increase the **Memory (GiB)** field by 2 GiB (for CentOS, 6 GiB).
 
@@ -245,15 +232,7 @@ Now that we're familiar with the application page layout, let's modify our appli
 
 #. In the **Audit** tab of Calm, wait for the **App Update** action to complete.
 
-#. Back in the **VM Console**, run the same command from earlier to view the updated memory, and note that it has increased by 2 GiB.
-
-   .. figure:: images/26_centos_memory_after.png
-       :align: center
-       :alt: CentOS Memory - After Update
-
-       CentOS Memory - After Update
-
-If anything went wrong with the VM Update, navigate to the **Recovery Points** tab, click **Restore** on the **before-update** snapshot we took earlier, and click **Confirm** on the pop-up.
+If anything went wrong with the VM Update, navigate to the **Snapshots** tab, click **Restore** on the **before-update** snapshot we took earlier, and click **Confirm** on the pop-up.
 
 Adding your Blueprints to the Marketplace
 +++++++++++++++++++++++++++++++++++++++++
