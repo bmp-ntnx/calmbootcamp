@@ -43,23 +43,6 @@ Creating the Blueprint
 
 #. Click **Save** and return back to the Blueprint Editor.
 
-#. Click **Configuration** and create the following **Downloadable Image Configuration**:
-
-   - **Package Name** - MSSQL2014_ISO
-   - **Description** - Microsoft SQL 2014 Installation ISO
-   - **Image Name** - MSSQL2014.iso
-   - **Image Type** - ISO Image
-   - **Architecture** - X86_64
-   - **Source URI** - http://download.microsoft.com/download/7/9/F/79F4584A-A957-436B-8534-3397F33790A6/SQLServer2014SP3-FullSlipstream-x64-ENU.iso
-   - **Product Name** - MSSQL
-   - **Product Version** - 2014
-   - **Checksum Algorithm** - *Leave blank*
-   - **Checksum Value** - *Leave blank*
-
-   .. figure:: images/downloadable_image_config.png
-
-#. Click **Save** and return back to the Blueprint Editor.
-
 #. Using the **Default** Application Profile, specify the following **Variables** in the **Configuration Panel**:
 
    +---------------------+---------------+----------------+---------------+---------------+
@@ -98,27 +81,11 @@ Adding Services
    +------------------------------+---------------------------+---------------------------+
    | **Compute DRS Mode Cluster** | nu-cl                     | nu-cl                     |
    +------------------------------+---------------------------+---------------------------+
-   | **Template**                 | Windows2016               | Windows2016               |
+   | **Template**                 | Win2016-Template          | Win2016-Template          |
    +------------------------------+---------------------------+---------------------------+
    | **Storage DRS Mode Cluster** | DatastoreCluster          | DatastoreCluster          |
    +------------------------------+---------------------------+---------------------------+
    | **Instance Name**            | @@{User_initials}@@-MSSQL | @@{User_initials}@@-MSIIS |
-   +------------------------------+---------------------------+---------------------------+
-   | **Number of Images**         | 2                         | 1                         |
-   +------------------------------+---------------------------+---------------------------+
-   | **Device Type 1**            | DISK                      | DISK                      |
-   +------------------------------+---------------------------+---------------------------+
-   | **Device Bus 1**             | SCSI                      | SCSI                      |
-   +------------------------------+---------------------------+---------------------------+
-   | **Bootable 1**               | Yes                       | Yes                       |
-   +------------------------------+---------------------------+---------------------------+
-   | **Image 2**                  | MSSQL2014_ISO             | N/A                       |
-   +------------------------------+---------------------------+---------------------------+
-   | **Device Type 2**            | CD-ROM                    | N/A                       |
-   +------------------------------+---------------------------+---------------------------+
-   | **Device Bus 2**             | IDE                       | N/A                       |
-   +------------------------------+---------------------------+---------------------------+
-   | **Bootable 2**               | No                        | N/A                       |
    +------------------------------+---------------------------+---------------------------+
    | **vCPUs**                    | 2                         | 2                         |
    +------------------------------+---------------------------+---------------------------+
@@ -126,55 +93,38 @@ Adding Services
    +------------------------------+---------------------------+---------------------------+
    | **Memory (GiB)**             | 6                         | 6                         |
    +------------------------------+---------------------------+---------------------------+
-   | **VM Guest Customization**   | Enable                    | Enable                    |
-   +------------------------------+---------------------------+---------------------------+
-   | **Type**                     | Sysprep                   | Sysprep                   |
-   +------------------------------+---------------------------+---------------------------+
-   | **Install Type**             | Prepared                  | Prepared                  |
-   +------------------------------+---------------------------+---------------------------+
-   | **Script**                   | *Copy script below table* | *Copy script below table* |
-   +------------------------------+---------------------------+---------------------------+
    | **Additional vDisks**        | 1                         | 1                         |
    +------------------------------+---------------------------+---------------------------+
    | **Device Type**              | DISK                      | DISK                      |
    +------------------------------+---------------------------+---------------------------+
-   | **Device Buse**              | SCSI                      | SCSI                      |
+   | **Adapter Type**             | SCSI                      | SCSI                      |
    +------------------------------+---------------------------+---------------------------+
    | **Size (GiB)**               | 100                       | 100                       |
    +------------------------------+---------------------------+---------------------------+
-   | **VGPUs**                    | None                      | None                      |
+   | **Location**                 | datastore_01              | datastore_01              |
    +------------------------------+---------------------------+---------------------------+
-   | **Categories**               | None                      | None                      |
+   | **Controller**               | SCSI Controller 0         | SCSI Controller 0         |
    +------------------------------+---------------------------+---------------------------+
-   | **Network Adapters**         | 1                         | 1                         |
+   | **Device Slot**              | 1                         | 1                         |
    +------------------------------+---------------------------+---------------------------+
-   | **NIC 1**                    | Primary                   | Primary                   |
+   | **Disk Mode**                | Dependent                 | Dependent                 |
+   +------------------------------+---------------------------+---------------------------+
+   | **VM Guest Customization**   | Enable                    | Enable                    |
+   +------------------------------+---------------------------+---------------------------+
+   | **Predefined List**          | WindowsSpec               | WindowsSpec               |
    +------------------------------+---------------------------+---------------------------+
    | **Check log-in upon create** | Yes                       | Yes                       |
    +------------------------------+---------------------------+---------------------------+
    | **Credential**               | WIN_VM_CRED               | WIN_VM_CRED               |
    +------------------------------+---------------------------+---------------------------+
-   | **Address**                  | NIC 1                     | NIC 1                     |
+   | **Address**                  | Template-NIC 1            | Template-NIC 1            |
    +------------------------------+---------------------------+---------------------------+
    | **Connection Type**          | Windows (Powershell)      | Windows (Powershell)      |
    +------------------------------+---------------------------+---------------------------+
    | **Connection Port**          | 5985                      | 5985                      |
    +------------------------------+---------------------------+---------------------------+
-   | **Delay (in seconds)**       | Increase to **90**        | Increase to **90**        |
+   | **Delay (in seconds)**       | Increase to **120**       | Increase to **120**       |
    +------------------------------+---------------------------+---------------------------+
-
-   Take a minute to review the Sysprep script, a short description follows after.
-
-   .. literalinclude:: Sysprep-unattended.xml
-      :language: xml
-
-   You can see the VMs being configured to autologon to the local Administrator account using the WIN_VM_CRED password. While this exercise will not join the VMs to an Active Directory domain, you could use either Sysprep or a Package Install task script to automate the joining of a domain.
-
-   Additionally, the firewall is configured to allow port 5985 which Calm uses to execute PowerShell scripts against the host.
-
-   .. note::
-
-      For those familiar with previous versions of Calm, the **Karan** service VM is no longer required to proxy PowerShell commands to the service VMs. Instead, Calm has introduced native support for running PowerShell scripts on remote hosts.
 
    Similar to the Task Manager application in the :ref:`calm_linux` lab, you want to ensure the database is available prior to the IIS web server setup.
 

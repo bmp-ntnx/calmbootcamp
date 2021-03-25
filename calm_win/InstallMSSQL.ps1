@@ -4,8 +4,8 @@ $HOSTNAME=$(hostname)
 $PackageName = "MsSqlServer2014Standard"
 $Prerequisites = "Net-Framework-Core"
 $silentArgs = "/IACCEPTSQLSERVERLICENSETERMS /Q /ACTION=install /FEATURES=SQLENGINE,SSMS,ADV_SSMS,CONN,IS,BC,SDK,BOL /SECURITYMODE=sql /SAPWD=`"@@{SQL_CRED.secret}@@`" /ASSYSADMINACCOUNTS=`"@@{SQL_CRED.username}@@`" /SQLSYSADMINACCOUNTS=`"@@{SQL_CRED.username}@@`" /INSTANCEID=MSSQLSERVER /INSTANCENAME=MSSQLSERVER /UPDATEENABLED=False /INDICATEPROGRESS /TCPENABLED=1 /INSTALLSQLDATADIR=`"${DriveLetter}:\Microsoft SQL Server`""
-$setupDriveLetter = "D:"
-$setupPath = "$setupDriveLetter\setup.exe"
+$setupDriveLetter = "C:"
+$setupPath = "$setupDriveLetter\SQL2014\setup.exe"
 $validExitCodes = @(0)
 
 if ($Prerequisites){
