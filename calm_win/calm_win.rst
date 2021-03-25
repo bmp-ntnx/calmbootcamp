@@ -268,7 +268,6 @@ Leveraging the same approach from the :ref:`calm_linux` lab of having multiple w
 - Clone your existing blueprint first!
 - When registering the SQL Server source database in Era, this deployment uses the default MSSQLServer instance name. You can use Windows Authentication to access the SQL Server instance, using the WIN_VM_CRED credentials.
 - When adding services in Calm, one of the **Cloud** types is using an **Existing VM**. Existing VMs only require the IP address of the VM and a credential for login.
-- When cloning, the Windows License Key for the Windows Server 2012 R2 VM is ``W3GGN-FT8W3-Y4M27-J84CP-Q3VJ9``.
 - You could use a semi-automated approach wherein you have a **Runtime** variable for your cloned database IP. In this instance, you would create a clone of your source database, wait for it to return an IP address, and provision the blueprint with the IP specified at runtime.
 - You could use a fully automated approach wherein you create a **Package Install Task** for your **Existing VM**. That task could execute an `EScript <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v240:nuc-supported-escript-modules-functions-c.html#nconcept_uxr_5dj_5bb>`_ to perform an API call to Era to initiate the DB clone operation and return the IP address.
 - Don't forget about dependencies!
