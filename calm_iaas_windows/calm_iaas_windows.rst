@@ -76,14 +76,14 @@ In this lab, you will be creating a **Windows 2016** server.
    - **Cores per vCPU** - 1
    - **Memory Hot Plug** - checked
    - **Memory (GiB)** - 4 (Mark this field as **runtime**.)
+  
+   .. figure:: images/7_windows_3.png
+       :align: center
+       :alt: Windows 2016 VM Configuration - General Configuration
 
-     .. figure:: images/6_centos_3.png
-         :align: center
-         :alt: CentOS 7 VM Configuration - General Configuration
+       Windows 2016 VM Configuration - General Configuration
 
-         CentOS 7 VM Configuration - General Configuration
-
-   - **VM Guest Customization** - Guest customization allows for the modification of certain settings at boot.  Linux OSes use "Cloud Init", while Windows OSes use "Sysprep".  Select the **VM Guest Customization** and then paste in the following script. Leave the Install Type (Prepared) and Join a Domain (un-checked) as defaults.
+   - Select the **VM Guest Customization** and then **Sysprep** and paste in the following script. Leave Join a Domain (un-checked).
 
      - Windows 2016
 
@@ -99,47 +99,6 @@ In this lab, you will be creating a **Windows 2016** server.
      .. note::
         Take note of the "@@{vm_password}@@" text.  In Calm the "@@{" and "}@@" characters represent a macro.  At runtime, Calm will automatically "patch" or substitute in the proper value(s) when it encounters a macro.  A macro could represent a system defined value, a VM property, or (as it does in this case) a runtime variable.  Later in this lab we'll create a runtime variable with the name "vm_password".
 
-   - **Disks** - A disk is the storage of the VM or infrastructure that we're deploying.  It could be based on a pre-existing image (as it will in our case), or it could be based on a blank disk to enable the VM to consume additional storage.  For instance, a Microsoft SQL server may need its base OS disk, a separate SQL Server binary disk, separate database data file disks, separate TempDB disks, and a separate logging disk.  In our case we're going to have a single disk, based on a pre-existing image.
-
-     - **Type** - The type of disk, this can be left as default (**DISK**).
-     - **Bus Type** - The bus type of the disk, this can be left as default (**SCSI**).
-     - **Operation** - How the disk will be sourced.  "Allocate on Storage Container" is used for blank disks.  We're going to keep the default, **Clone from Image Service**, as we're using a pre-defined image.
-     - **Image** - The image the VM will be based off of.  Select **Windows2016.qcow2**.
-     - **Bootable** - Whether or not this particular disk is bootable.  A minimum of one disk *must* be bootable.  In our case, leave it **enabled**.
-
-     .. figure:: images/11_windows_5.png
-         :align: center
-         :alt: Windows 2016 VM Configuration - Disks
-
-         Windows 2016 VM Configuration - Disks
-
-   - **Boot Configuration** - The boot method of the VM.  We'll leave the default of **Legacy BIOS**.
-
-   - **vGPUs** - Whether or not the VM needs a virtual graphical processing unit.  We'll leave the default of none.
-
-   - **Categories** - Categories span several different products and solutions within the Nutanix portfolio.  They enable you to set security policies, protection policies, alert policies, and playbooks.  Simply choose the categories corresponding to the workload, and all of these policies will automatically be applied.  In this lab however, we're going to leave this field **blank**.
-
-   .. figure:: images/12_boot_gpu_cat.png
-       :align: center
-       :alt: VM Configuration - Boot Configuration, vGPUs, and Categories
-
-       VM Configuration - Boot Configuration, vGPUs, and Categories
-
-   - **NICs** - Network adapters allow communication to and from your virtual machine.  We'll be adding a single NIC by clicking the **blue plus**, then selecting **Primary** in the dropdown, and selecting the **Dynamic** radio button.
-
-   .. figure:: images/13_vm_nic.png
-       :align: center
-       :alt: VM Configuration - NICs
-
-       VM Configuration - NICs
-
-   - **Serial Ports** - Whether or not the VM needs a virtual serial port.  We'll leave the default of **none**.
-
-   .. figure:: images/14_serial.png
-       :align: center
-       :alt: VM Configuration - Serial Ports
-
-       VM Configuration - Serial Ports
 
 #. At the bottom of the page, click the blue **Save** button.  It is expected to have a single error about an incorrect macro due to our Guest Customization containing "vm_password".  If you have additional errors, please be sure to resolve them before continuing to the next section.
 
