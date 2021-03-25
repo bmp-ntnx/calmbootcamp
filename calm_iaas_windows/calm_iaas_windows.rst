@@ -50,8 +50,8 @@ In this lab, you will be creating a **Windows 2016** server.
 
 #. Note the following fields on the **VM Details** page:
 
-   - **Name** - The internal-to-Calm name of the VM.  Use @@{calm_application_name}@@.
-   - **Cloud** - The cloud we're deploying the infrastructure on.  Should be left as **Nutanix**.
+   - **Name** - The internal-to-Calm name of the VM.  Can be left as default.
+   - **Account** - The cloud we're deploying the infrastructure on.  Should be set to **vmware**.
    - **Operating System** - Windows (The type of OS we're deploying)
 
    .. figure:: images/5_windows_2.png
@@ -67,7 +67,7 @@ In this lab, you will be creating a **Windows 2016** server.
    - **General Configuration**
    - **Compute DRS Mode** - checked
    - **Cluster** - nu-cl
-   - **Template** Centos7
+   - **Template** Windows2016
    - **Storage DRS Mode** - checked
    - **Datastore Cluster** - DatastoreCluster
    - **Instance Name** - this is the name of the virtual machine according to the hypervisor/cloud.  It can be left as default.
