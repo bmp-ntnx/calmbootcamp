@@ -65,20 +65,25 @@ In this lab, you will be creating a **Windows 2016** server.
 #. On this page, we'll be specifying a variety of settings for our infrastructure.
 
    - **General Configuration**
+   - **Compute DRS Mode** - checked
+   - **Cluster** - nu-cl
+   - **Template** Centos7
+   - **Storage DRS Mode** - checked
+   - **Datastore Cluster** - DatastoreCluster
+   - **Instance Name** - this is the name of the virtual machine according to the hypervisor/cloud.  It can be left as default.
+   - **CPU Hot Add** - checked
+   - **vCPUs** - 2 (Mark the field as **runtime** by clicking the running man icon so it turns blue.  This allows the end user to modify this field at launch.)
+   - **Cores per vCPU** - 1
+   - **Memory Hot Plug** - checked
+   - **Memory (GiB)** - 4 (Mark this field as **runtime**.)
 
-     - **VM Name** - this is the name of the virtual machine according to the hypervisor/cloud.  It can be left as default.
-     - **vCPUs** - 4 (Mark the field as **runtime** by clicking the running man icon so it turns blue.  This allows the end user to modify this field at launch.)
-     - **Cores per vCPU** - 1
-     - **Memory (GiB)** -  6 (Mark this field as **runtime**)
-
-     .. figure:: images/7_windows_3.png
+     .. figure:: images/6_centos_3.png
          :align: center
-         :alt: Windows 2016 VM Configuration - General Configuration
+         :alt: CentOS 7 VM Configuration - General Configuration
 
-         Windows 2016 VM Configuration - General Configuration
+         CentOS 7 VM Configuration - General Configuration
 
-
-   - **Guest Customization** - Guest customization allows for the modification of certain settings at boot.  Linux OSes use "Cloud Init", while Windows OSes use "Sysprep".  Select the **Guest Customization**, and then paste in the following script. Leave the Install Type (Prepared) and Join a Domain (un-checked) as defaults.
+   - **VM Guest Customization** - Guest customization allows for the modification of certain settings at boot.  Linux OSes use "Cloud Init", while Windows OSes use "Sysprep".  Select the **VM Guest Customization** and then paste in the following script. Leave the Install Type (Prepared) and Join a Domain (un-checked) as defaults.
 
      - Windows 2016
 
@@ -223,8 +228,7 @@ Once your application is in a **Running** state, navigate around the five tabs i
 
 - The **Overview** tab gives you information about any variables specified, the cost incurred (showback can be configured in the Calm Settings), an application summary, and a VM summary.
 - The **Manage** tab allows you to run actions against the application / infrastructure.  This includes basic lifecycle (start, restart, stop, delete), NGT management (install, manage, uninstall), and App Update, which allows for editing of basic VM resources.
-- The **Metrics** tab gives in depth information about CPU, Memory, Storage, and Network utilization.
-- The **Recovery Points** tab lists the history of VM Snapshots, and allows the user to restore the VM to any of these points.
+- The **Snapshots** tab lists the history of VM Snapshots, and allows the user to restore the VM to any of these points.
 - The **Audit** tab shows every action run against the application, the time and user that ran a given action, and in depth information on the results of that action, including script output.
 
 Next, view the common VM tasks available in the upper right corner of the UI:
@@ -296,150 +300,6 @@ Now that we're familiar with the application page layout, let's modify our appli
 
       If anything went wrong with the VM Update, navigate to the **Recovery Points** tab, click **Restore** on the **before-update** snapshot we took earlier, and click **Confirm** on the pop-up.
 
-Adding your Blueprints to the Marketplace
-+++++++++++++++++++++++++++++++++++++++++
-
-Now that we know we have a good blueprint, lets publish it to he Marketplace.
-
-Publishing the Blueprint
-........................
-
-#. Select |blueprints| **Blueprints** in the left hand toolbar to view and manage Calm blueprints.
-
-#. Click your *Initials*\ **-Win-IaaS** blueprint.
-
-#. Click the **Publish** button, and enter the following:
-
-   - **Name** - *initials*\ _Windows_IaaS
-   - **Publish with secrets** - off
-   - **Initial Version** - 1.0.0
-   - **Description** - (Optional)
-
-   .. figure:: images/28_windows_publish_bp.png
-       :align: center
-       :alt: Windows Publish Blueprint
-
-       Windows Publish Blueprint
-
-#. Click **Submit for Approval**.
-
-   .. note::
-
-     Publish with Secrets: By default, the secret values from the blueprint are not preserved while publishing. As a result, during the launch of the marketplace item, the secret values will either be patched from the environment or the user will have to fill them in.
-
-     Set this flag if you do not want this behaviour and you would rather the secret values are preserved as is. *Credential passwords/keys and secret variables are considered secret values. While publishing with secrets, these values will be encrypted.*
-
-Approving Blueprints
-....................
-
-#. Select |mktmgr-icon| **Marketplace Manager** in the left hand toolbar to view and manage Marketplace Blueprints.
-
-#. You will see the list of Marketplace blueprints, and their versions listed. Select **Approval Pending** at the top of the page.
-
-#. Click your *intials*\ **-Windows-IaaS** blueprint.
-
-#. Review the available actions:
-
-   - **Approve** - Approves the Blueprint for publication to the Marketplace.
-   - **Reject** - Prevents  Blueprint from being launched or published in the Marketplace. The Blueprint will need to be submitted again after being rejected before it can be published.
-   - **Delete** - Deletes the blueprint submission to the Marketplace.
-   - **Launch** - Launches the Blueprint as an application, similar to launching from the Blueprint Editor.
-
-#. Review the available selections:
-
-   - **Category** - Allows you to update the Category for the new Marketplace blueprint.
-   - **Projects Shared With** - Allows you to make the Marketplace blueprint only available to a certain project.
-
-#. Click **Approve**.
-
-   .. figure:: images/29_windows_approve_bp.png
-       :align: center
-       :alt: Windows Approve Blueprint
-
-       Windows Approve Blueprint
-
-#. Select **Marketplace Blueprints** at the top of the page, and enter your *initials* in the search bar. You should see your blueprint listed now, with a Status of **Accepted**.
-
-   .. figure:: images/30_windows_marketplace_bp.png
-       :align: center
-       :alt: Windows Marketplace Blueprint
-
-       Windows Marketplace Blueprint
-
-Launching your Blueprint from the Marketplace
-+++++++++++++++++++++++++++++++++++++++++++++
-
-Now that we have published our blueprint to the Marketplace, we need to make an update to our *initials*\ -Project.
-
-Configuring Project Environment
-...............................
-
-#. To launch a Blueprint directly from the Marketplace, we need to ensure our Project has all of the requisite environment details to satisfy the Blueprint.
-
-#. Select **Projects** from the lefthand menu.
-
-#. Select your *initials*\ -Project.
-
-#. Select the **Environment** tab.
-
-#. Under **Credential**, click :fa:`plus-circle` and enter the following:
-
-   - **Credential Name** - Administrator
-   - **Username** - Administrator
-   - **Secret Type** - Password
-   - **Password** - Nutanix/4u
-   - Click the **running man** icon above Password box to mark this variable as **runtime**.
-
-   .. figure:: images/32_windows_project_creds.png
-       :align: center
-       :alt: Windows Project Credential
-
-       Windows Project Credential
-
-#. Under **VM Configuration** select **NUTANIX** and expand **Windows** (if not already visible), and enter the following:
-
-   - select **NUTANIX**
-   - **VM Name** - vm-@@{calm_array_index}@@-@@{calm_time}@@ (Default)
-   - **vCPUs** - 4
-   - **Cores per vCPU** - 1
-   - **Memory** - 6GiB
-   - **Image** - Windows2016.qcow2
-   - **NICs** - Click the **blue plus**, then selecting **Primary** in the dropdown, and select the **Dynamic** radio button.
-   - **Check log-in upon create** - checked, and **Credential** - Administrator (Defined Above)
-
-   .. figure:: images/33_windows_project_vmconfig.png
-       :align: center
-       :alt: Windows Project VM Config
-
-       Windows Project VM Config
-
-#. Click **Save**.
-
-Launching the Blueprint from the Marketplace
-............................................
-
-#. Select |mktmgr-icon| **Marketplace Manager** in the left hand toolbar to view and manage Marketplace Blueprints.
-
-#. Enter your *initials* in the search bar, and you should see your blueprint listed.
-
-#. Select your *intials*\ **_Win_IaaS** blueprint, and click **Launch** from the Marketplace.
-
-   .. figure:: images/31_windows_marketplace_launch_bp.png
-       :align: center
-       :alt: Windows Marketplace Launce Blueprint
-
-       Windows Marketplace Launch Blueprint
-
-#. Select your *initials*\ **-Project** from the **Projects** dropdown.
-
-#. Click **Launch**
-
-#. Entrer the Following info, and click **Create**.
-
-   - **Name of the Application** - *initials*\ -Win-IaaS-2
-   - **vm_password** - Nutanix/4u
-
-#. Monitor the provisioning of the Blueprint until complete.
 
 Takeaways
 +++++++++
