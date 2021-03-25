@@ -1,7 +1,7 @@
 .. _calm_iaas_windows:
 
 ---------------------------------
-Calm: Infrastructure as a Service
+Calm: Windows Single VM IaaS
 ---------------------------------
 
 *The estimated time to complete this lab is 20 minutes.*
@@ -98,6 +98,9 @@ In this lab, you will be creating a **Windows 2016** server.
 
      .. note::
         Take note of the "@@{vm_password}@@" text.  In Calm the "@@{" and "}@@" characters represent a macro.  At runtime, Calm will automatically "patch" or substitute in the proper value(s) when it encounters a macro.  A macro could represent a system defined value, a VM property, or (as it does in this case) a runtime variable.  Later in this lab we'll create a runtime variable with the name "vm_password".
+
+   - Under **Network Settings** press the **blue plus** and verify **Use DHCP** is checked.
+
 
 
 #. At the bottom of the page, click the blue **Save** button.  It is expected to have a single error about an incorrect macro due to our Guest Customization containing "vm_password".  If you have additional errors, please be sure to resolve them before continuing to the next section.

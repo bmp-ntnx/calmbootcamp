@@ -13,9 +13,9 @@
   calm_linux/calm_linux
   calm_day2/calm_day2
 
-  calm_iaas_windows/calm_iaas_windows
-  calm_win/calm_win
-  calm_dsl/calm_dsl
+  .. calm_iaas_windows/calm_iaas_windows
+  .. calm_win/calm_win
+  .. calm_dsl/calm_dsl
 
 
 
